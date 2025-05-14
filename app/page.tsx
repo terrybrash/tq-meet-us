@@ -98,7 +98,7 @@ export default function Home() {
                   }}
                 >
                   <div className="socials">
-                    <div>FirstName LastName</div>
+                    <div>First Middle Last</div>
                     <div className="opacity-70">LI - X</div>
                   </div>
                 </div>
