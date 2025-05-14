@@ -22,7 +22,7 @@ body {
 }
 
 .company {
-  gap: 0px 20px;
+  gap: 0px 32px;
 
   overflow-x: auto;
   display: grid;
@@ -38,7 +38,7 @@ body {
 .team-name {
   left: 0;
   position: sticky;
-  padding: 10px 0px;
+  padding: 18px 0px;
   width: max-content;
 }
 
@@ -68,7 +68,7 @@ body {
 }
 
 .headshot + .headshot {
-  margin-left: 20px;
+  margin-left: 32px;
 }
 
 .headshot > img {
@@ -83,7 +83,7 @@ body {
   /* bg-blue-500 opacity-55 flex place-content-between py-2 */
   line-height: normal;
   /* background-color: cornflowerblue; */
-  padding: 10px 0px;
+  padding: 14px 0px;
   background-color: black;
   position: absolute;
   bottom: 0px;

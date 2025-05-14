@@ -59,10 +59,45 @@ export default function Home() {
   //   };
   // }, []);
 
+  function person(
+    name: string,
+    image: number
+  ): { name: string; image: number } {
+    return {
+      name,
+      image,
+    };
+  }
+
   const teams = [
-    { name: "Investment Team", images: [1, 2, 3, 4, 5] },
-    { name: "Operating Executives", images: [6, 7, 8, 9] },
-    { name: "Infrastructure", images: [10, 11, 12, 13] },
+    {
+      name: "Investment Team",
+      members: [
+        person("Andrew Marks", 1),
+        person("Schuster Tanger", 2),
+        person("Jana Iris", 3),
+        person("Alexis Vitenas", 4),
+        person("Elisabeth Rülke", 5),
+      ],
+    },
+    {
+      name: "Operating Executives",
+      members: [
+        person("Michael Kilberry", 6),
+        person("Finbarr Timbers", 7),
+        person("Rajiv Swamy", 8),
+        person("Elliot Graebert", 9),
+      ],
+    },
+    {
+      name: "Infrastructure",
+      members: [
+        person("Josh Epstein", 10),
+        person("Anna Gomez", 11),
+        person("Brooke Kilgallen", 12),
+        person("Olivia Bastianich", 13),
+      ],
+    },
   ];
 
   return (
@@ -89,16 +124,16 @@ export default function Home() {
           <div key={ti} className="team">
             <div className="team-name">{team.name}</div>
             <div className="team-members">
-              {team.images.map((image, ii) => (
+              {team.members.map((member, ii) => (
                 <div
                   key={ii}
                   className="headshot"
                   style={{
-                    backgroundImage: `url("/${image}.avif")`,
+                    backgroundImage: `url("/${member.image}.avif")`,
                   }}
                 >
                   <div className="socials">
-                    <div>First Middle Last</div>
+                    <div>{member.name}</div>
                     <div className="opacity-70">LI - X</div>
                   </div>
                 </div>
