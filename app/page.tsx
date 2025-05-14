@@ -71,38 +71,50 @@ export default function Home() {
         <div className="bg-red-300 w-50" style={{ height: `${width}px` }}></div>
       </div> */}
       {/* <div className="absolute w-10 h-svh bg-red-200"></div> */}
-      <div className="grid grid-rows-[auto_1fr] max-w-7xl mx-auto max-h-screen h-dvh">
-        <div className="text-sm p-10 space-y-10">
-          <p>
-            TQ Ventures is led by longtime friends Schuster Tanger and Andrew
-            fund on their own terms. We’re a tight-knit team with diverse career
-            arcs, shared values, and an obsession with what we do.
-          </p>
-          {/* <p>
+      <div className="text-sm p-10 space-y-10 shrink-0 grow-0">
+        <p>
+          TQ Ventures is led by longtime friends Schuster Tanger and Andrew fund
+          on their own terms. We’re a tight-knit team with diverse career arcs,
+          shared values, and an obsession with what we do.
+        </p>
+        {/* <p>
             TQ Ventures is led by longtime friends Schuster Tanger and Andrew
             Marks, who share a passion for investing and a vision to build a
             fund on their own terms. We’re a tight-knit team with diverse career
             arcs, shared values, and an obsession with what we do.
           </p> */}
-        </div>
-        <div className="company">
-          {teams.map((team, ti) => (
-            <div key={ti} className="team">
-              <div className="team-name">test</div>
-              <div className="team-members">
-                {team.images.map((image, ii) => (
-                  <Fragment key={ii}>
-                    <img className="headshot" alt="" src={`/${image}.avif`} />
-                    <div className="flex place-content-between py-2">
-                      <div>FirstName LastName</div>
-                      <div className="opacity-70">LI - X</div>
-                    </div>
-                  </Fragment>
-                ))}
-              </div>
+      </div>
+      <div className="company">
+        {teams.map((team, ti) => (
+          <div key={ti} className="team">
+            <div className="team-name">{team.name}</div>
+            <div className="team-members">
+              {team.images.map((image, ii) => (
+                <Fragment key={ii}>
+                  <div
+                    className="headshot"
+                    style={{
+                      backgroundImage: `url("/${image}.avif")`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    {/* <img
+                      alt=""
+                      src={`/${image}.avif`}
+                      width={800}
+                      height={1200}
+                    /> */}
+                  </div>
+                  {/* <div className="bg-blue-500 opacity-55 flex place-content-between py-2">
+                    <div>FirstName LastName</div>
+                    <div className="opacity-70">LI - X</div>
+                  </div> */}
+                </Fragment>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </>
   );
