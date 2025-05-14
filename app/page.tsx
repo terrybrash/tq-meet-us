@@ -106,7 +106,7 @@ export default function Home() {
         <div className="bg-red-300 w-50" style={{ height: `${width}px` }}></div>
       </div> */}
       {/* <div className="absolute w-10 h-svh bg-red-200"></div> */}
-      <div className="text-sm p-10 space-y-10 shrink-0 grow-0">
+      <div className="text-sm my-4 space-y-10 shrink-0 grow-0">
         <p>
           TQ Ventures is led by longtime friends Schuster Tanger and Andrew fund
           on their own terms. We’re a tight-knit team with diverse career arcs,

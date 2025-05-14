@@ -14,15 +14,19 @@ body {
   height: 100dvh;
   max-height: 100vh;
   max-height: 100dvh;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0px 20px;
+  box-sizing: content-box;
 
   display: grid;
   grid-template-rows: auto 1fr;
 }
 
 .company {
-  gap: 0px 32px;
+  gap: 0px 24px;
+  margin: 0px -20px;
+  padding: 0px 20px;
 
   overflow-x: auto;
   display: grid;
@@ -69,7 +73,7 @@ body {
 }
 
 .headshot + .headshot {
-  margin-left: 32px;
+  margin-left: 24px;
 }
 
 .headshot > img {
