@@ -45,14 +45,26 @@ body {
 .team-members {
   white-space: nowrap;
   line-height: 0;
+  /* line-height: 0; */
+
+  /* display: grid; */
+  /* grid-auto-flow: column; */
+  /* grid-auto-columns: auto; */
+  /* grid-template-rows: minmax(0, 1fr) auto; */
+  /* justify-content: start; */
 }
 
 .headshot {
   width: auto;
   height: 100%;
+  min-height: 0;
   aspect-ratio: 2/3;
-  background-color: burlywood;
   display: inline-block;
+  position: relative;
+
+  /* background-color: burlywood; */
+  background-size: cover;
+  background-position: center;
 }
 
 .headshot + .headshot {
@@ -65,4 +77,18 @@ body {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
+}
+
+.socials {
+  /* bg-blue-500 opacity-55 flex place-content-between py-2 */
+  line-height: normal;
+  /* background-color: cornflowerblue; */
+  padding: 10px 0px;
+  background-color: black;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
 }

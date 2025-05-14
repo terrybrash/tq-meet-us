@@ -90,27 +90,18 @@ export default function Home() {
             <div className="team-name">{team.name}</div>
             <div className="team-members">
               {team.images.map((image, ii) => (
-                <Fragment key={ii}>
-                  <div
-                    className="headshot"
-                    style={{
-                      backgroundImage: `url("/${image}.avif")`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  >
-                    {/* <img
-                      alt=""
-                      src={`/${image}.avif`}
-                      width={800}
-                      height={1200}
-                    /> */}
-                  </div>
-                  {/* <div className="bg-blue-500 opacity-55 flex place-content-between py-2">
+                <div
+                  key={ii}
+                  className="headshot"
+                  style={{
+                    backgroundImage: `url("/${image}.avif")`,
+                  }}
+                >
+                  <div className="socials">
                     <div>FirstName LastName</div>
                     <div className="opacity-70">LI - X</div>
-                  </div> */}
-                </Fragment>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
