@@ -1,103 +1,112 @@
-import Image from "next/image";
+"use client";
+
+import { Fragment, useEffect, useRef, useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // useEffect(() => {
+  //   const scroller = scrollRef.current;
+  //   if (!scroller) {
+  //     return;
+  //   }
+
+  //   const container = containerRef.current;
+  //   if (!container) {
+  //     return;
+  //   }
+
+  //   // const handleWheel = (e: WheelEvent) => {
+  //   //   if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+  //   //     scroller.scrollLeft += e.deltaY * 2;
+  //   //     e.preventDefault();
+  //   //   }
+  //   // };
+  //   // scroller.addEventListener("wheel", handleWheel, { passive: false });
+  //   // return () => {
+  //   //   scroller.removeEventListener("wheel", handleWheel);
+  //   // };
+
+  //   const handleScroll = () => {
+  //     container.style.transform = `translateX(${-scroller.scrollTop}px)`;
+  //     console.log("scroll");
+  //   };
+  //   scroller.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     scroller.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   const container = containerRef.current;
+  //   if (!container) {
+  //     return;
+  //   }
+
+  //   const observer = new ResizeObserver((entries) => {
+  //     for (const entry of entries) {
+  //       console.log("Resized:", entry.target, entry.contentRect);
+  //       setWidth(entry.contentRect.width);
+  //     }
+  //   });
+
+  //   observer.observe(container, { box: "device-pixel-content-box" });
+
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, []);
+
+  const teams = [
+    { name: "Investment Team", images: [1, 2, 3, 4, 5] },
+    { name: "Operating Executives", images: [6, 7, 8, 9] },
+    { name: "Infrastructure", images: [10, 11, 12, 13] },
+  ];
+
+  return (
+    <>
+      {/* <div ref={scrollRef} className="absolute top-0 left-0 h-4/5 overflow-y-scroll">
+        <div className="bg-red-300 w-50" style={{ height: `${width}px` }}></div>
+      </div> */}
+      {/* <div className="absolute w-10 h-svh bg-red-200"></div> */}
+      <div className="grid grid-rows-[auto_1fr] max-w-7xl mx-auto max-h-screen h-dvh">
+        <div className="text-sm p-10 space-y-10">
+          <p>
+            TQ Ventures is led by longtime friends Schuster Tanger and Andrew
+            fund on their own terms. We’re a tight-knit team with diverse career
+            arcs, shared values, and an obsession with what we do.
+          </p>
+          {/* <p>
+            TQ Ventures is led by longtime friends Schuster Tanger and Andrew
+            Marks, who share a passion for investing and a vision to build a
+            fund on their own terms. We’re a tight-knit team with diverse career
+            arcs, shared values, and an obsession with what we do.
+          </p> */}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="company">
+          {teams.map((team, ti) => (
+            <div key={ti} className="team">
+              <div className="team-name">test</div>
+              <div className="team-members">
+                {team.images.map((image, ii) => (
+                  <Fragment key={ii}>
+                    <img className="headshot" alt="" src={`/${image}.avif`} />
+                    <div className="flex place-content-between py-2">
+                      <div>FirstName LastName</div>
+                      <div className="opacity-70">LI - X</div>
+                    </div>
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
+
+// <div className="card" key={i}>
+// </div>

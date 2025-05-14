@@ -23,4 +23,64 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+.company {
+  overflow-x: scroll;
+  /* display: flex;
+  flex-flow: row; */
+  /* display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  grid-template-rows: auto minmax(0, 1fr); */
+  display: flex;
+  flex-direction: row;
+  /* height: 100%; */
+  gap: 0px 20px;
+  /* align-items: start; */
+  /* justify-content: start; */
+}
+
+.team {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto minmax(0, 1fr);
+  /* height: 100%; */
+}
+
+.team-name {
+  /* flex: 0 0 0; */
+  position: sticky;
+  left: 0;
+}
+
+.team-members {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  /* grid-auto-columns: minmax(0, auto); */
+  grid-template-rows: minmax(0, 1fr) auto;
+  /* align-items: start; */
+  /* justify-content: start; */
+
+  /* height: 100%; */
+  gap: 0px 20px;
+
+  /* If you set the width, the overflow-x MUST go on a parent container. */
+  /* width: max-content; */
+}
+
+.headshot {
+  height: 100%;
+  /* background-color: burlywood; */
+}
+
+.socials {
+  padding: 10px 0px;
+  /* background-color: cadetblue; */
 }
