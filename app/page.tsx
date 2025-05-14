@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useRef, useState } from "react";
+import { Logo } from "./logo";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -106,18 +107,19 @@ export default function Home() {
         <div className="bg-red-300 w-50" style={{ height: `${width}px` }}></div>
       </div> */}
       {/* <div className="absolute w-10 h-svh bg-red-200"></div> */}
-      <div className="text-sm my-4 space-y-10 shrink-0 grow-0">
-        <p>
-          TQ Ventures is led by longtime friends Schuster Tanger and Andrew fund
+      <div className="text-sm my-6 space-y-6 shrink-0 grow-0">
+        <Logo className="mx-auto"></Logo>
+        <div className="flex justify-between underline">
+          <div>Companies.</div>
+          <div>Meet Us.</div>
+          <div>About Us.</div>
+        </div>
+        <p className="text-xs">
+          TQ Ventures is led by longtime friends Schuster Tanger and Andrew
+          Marks, who share a passion for investing and a vision to build a fund
           on their own terms. We’re a tight-knit team with diverse career arcs,
           shared values, and an obsession with what we do.
         </p>
-        {/* <p>
-            TQ Ventures is led by longtime friends Schuster Tanger and Andrew
-            Marks, who share a passion for investing and a vision to build a
-            fund on their own terms. We’re a tight-knit team with diverse career
-            arcs, shared values, and an obsession with what we do.
-          </p> */}
       </div>
       <div className="company">
         {teams.map((team, ti) => (
@@ -134,7 +136,10 @@ export default function Home() {
                 >
                   <div className="socials">
                     <div>{member.name}</div>
-                    <div className="opacity-70">LI - X</div>
+                    <p className="text-gray-500">
+                      <span className="underline">LI</span> <span>-</span>{" "}
+                      <span className="underline">X</span>
+                    </p>
                   </div>
                 </div>
               ))}

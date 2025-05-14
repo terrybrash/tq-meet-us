@@ -37,25 +37,18 @@ body {
 .team {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
+  gap: 20px 0px;
 }
 
 .team-name {
   left: 0;
   position: sticky;
-  padding: 18px 0px;
   width: max-content;
 }
 
 .team-members {
   white-space: nowrap;
   line-height: 0;
-  /* line-height: 0; */
-
-  /* display: grid; */
-  /* grid-auto-flow: column; */
-  /* grid-auto-columns: auto; */
-  /* grid-template-rows: minmax(0, 1fr) auto; */
-  /* justify-content: start; */
 }
 
 .headshot {
@@ -85,9 +78,7 @@ body {
 }
 
 .socials {
-  /* bg-blue-500 opacity-55 flex place-content-between py-2 */
   line-height: normal;
-  /* background-color: cornflowerblue; */
   padding: 14px 0px;
   background-color: black;
   position: absolute;
