@@ -73,6 +73,7 @@ export default function Home() {
   const teams = [
     {
       name: "Investment Team",
+      anchor: "investment-team",
       members: [
         person("Andrew Marks", 1),
         person("Schuster Tanger", 2),
@@ -83,6 +84,7 @@ export default function Home() {
     },
     {
       name: "Operating Executives",
+      anchor: "operating-executives",
       members: [
         person("Michael Kilberry", 6),
         person("Finbarr Timbers", 7),
@@ -92,6 +94,7 @@ export default function Home() {
     },
     {
       name: "Infrastructure",
+      anchor: "infrastructure",
       members: [
         person("Josh Epstein", 10),
         person("Anna Gomez", 11),
@@ -123,8 +126,10 @@ export default function Home() {
       </div>
       <div className="company">
         {teams.map((team, ti) => (
-          <div key={ti} className="team">
-            <div className="team-name">{team.name}</div>
+          <div key={ti} className="team" id={team.anchor}>
+            <a className="team-name" href={`#${team.anchor}`}>
+              {team.name}
+            </a>
             <div className="team-members">
               {team.members.map((member, ii) => (
                 <div
