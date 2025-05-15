@@ -8,6 +8,24 @@ export default function Home() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
 
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (!containerRef.current) {
+        return;
+      }
+      const el = containerRef.current;
+      el.scrollLeft += e.deltaY * 1.5;
+      console.log(
+        "progress",
+        (el.scrollLeft + el.clientWidth) / el.scrollWidth
+      );
+    };
+    window.addEventListener("wheel", handleWheel);
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
   // useEffect(() => {
   //   const scroller = scrollRef.current;
   //   if (!scroller) {
@@ -90,13 +108,13 @@ export default function Home() {
         person("Finbarr Timbers", 7),
         person("Rajiv Swamy", 8),
         person("Elliot Graebert", 9),
+        person("Josh Epstein", 10),
       ],
     },
     {
       name: "Infrastructure",
       anchor: "infrastructure",
       members: [
-        person("Josh Epstein", 10),
         person("Anna Gomez", 11),
         person("Brooke Kilgallen", 12),
         person("Olivia Bastianich", 13),
@@ -124,7 +142,7 @@ export default function Home() {
           shared values, and an obsession with what we do.
         </p>
       </div>
-      <div className="company">
+      <div ref={containerRef} className="company">
         {teams.map((team, ti) => (
           <div key={ti} className="team" id={team.anchor}>
             <a className="team-name">{team.name}</a>
