@@ -127,9 +127,7 @@ export default function Home() {
       <div className="company">
         {teams.map((team, ti) => (
           <div key={ti} className="team" id={team.anchor}>
-            <a className="team-name" href={`#${team.anchor}`}>
-              {team.name}
-            </a>
+            <a className="team-name">{team.name}</a>
             <div className="team-members">
               {team.members.map((member, ii) => (
                 <div
