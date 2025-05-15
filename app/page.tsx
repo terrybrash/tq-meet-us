@@ -5,6 +5,7 @@ import { Logo } from "./logo";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const thumbRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
 
@@ -13,14 +14,50 @@ export default function Home() {
       if (!containerRef.current) {
         return;
       }
+      if (e.shiftKey) {
+        e.preventDefault();
+      }
       const el = containerRef.current;
       el.scrollLeft += e.deltaY * 1.5;
-      console.log(
-        "progress",
-        (el.scrollLeft + el.clientWidth) / el.scrollWidth
-      );
     };
-    window.addEventListener("wheel", handleWheel);
+    window.addEventListener("wheel", handleWheel, {
+      passive: false,
+      capture: true,
+    });
+
+    const el = containerRef.current;
+    if (!el) {
+      return;
+    }
+    const handleScroll = () => {
+      const thumb = thumbRef.current;
+      if (!thumb) {
+        return;
+      }
+      // const s = el.scrollLeft / (el.scrollWidth - el.clientWidth);
+      // thumb.style.width = `${s * 100}%`;
+
+      // const { scrollLeft, scrollWidth, clientWidth } = el;
+      // // fraction of content visible
+      // const thumbFraction = clientWidth / scrollWidth;
+      // // fraction of track the thumb can move
+      // const trackFraction = 1 - thumbFraction;
+      // // how far (0→1) the thumb has moved along that range
+      // const scrollFraction = scrollLeft / (scrollWidth - clientWidth);
+      // // the thumb’s center as a fraction of the track
+      // const centerFraction = scrollFraction * trackFraction + thumbFraction / 2;
+      // // set overlay width to that percentage
+      // thumb.style.width = `${centerFraction * 100}%`;
+
+      const thumbFraction = el.clientWidth / el.scrollWidth;
+      const trackFraction = 1 - thumbFraction;
+      const scrollFraction = el.scrollLeft / (el.scrollWidth - el.clientWidth);
+      // right-edge position as fraction of track
+      const rightFraction = scrollFraction * trackFraction + thumbFraction;
+      thumb.style.width = `${rightFraction * 100}%`;
+    };
+    el?.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("wheel", handleWheel);
     };
@@ -145,7 +182,9 @@ export default function Home() {
       <div ref={containerRef} className="company">
         {teams.map((team, ti) => (
           <div key={ti} className="team" id={team.anchor}>
-            <a className="team-name">{team.name}</a>
+            <a className="team-name underline" href={`#${team.anchor}`}>
+              {team.name}
+            </a>
             <div className="team-members">
               {team.members.map((member, ii) => (
                 <div
@@ -168,6 +207,10 @@ export default function Home() {
           </div>
         ))}
       </div>
+      <div className="scrollbar">
+        <div ref={thumbRef} className="thumb"></div>
+      </div>
+      <div>Footer Footer Footer Footer</div>
     </>
   );
 }
