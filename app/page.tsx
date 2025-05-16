@@ -189,7 +189,7 @@ export default function Home() {
               {team.members.map((member, ii) => (
                 <div
                   key={ii}
-                  className="headshot"
+                  className="headshot relative"
                   style={{
                     backgroundImage: `url("/${member.image}.avif")`,
                   }}
