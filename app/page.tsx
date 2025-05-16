@@ -187,13 +187,16 @@ export default function Home() {
             </a>
             <div className="team-members">
               {team.members.map((member, ii) => (
-                <div
-                  key={ii}
-                  className="headshot relative"
-                  style={{
-                    backgroundImage: `url("/${member.image}.avif")`,
-                  }}
-                >
+                <div key={ii} className="headshot overflow-hidden">
+                  <img
+                    className="absolute top-0 right-0 bottom-8 -translate-y-2"
+                    src={`/${member.image}.avif`}
+                  />
+                  {/* <div className="w-full h-full absolute text-sm wrap-anywhere overflow-hidden">
+                    Cleanlab is the gold standard for Data-Centric AI, trusted
+                    by teams to clean, validate, and optimize datasets at scale.
+                  </div> */}
+
                   <div className="socials">
                     <div>{member.name}</div>
                     <p className="text-gray-500">

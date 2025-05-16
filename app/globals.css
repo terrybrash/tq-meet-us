@@ -29,40 +29,15 @@ body {
   grid-template-rows: auto 1fr auto auto;
 }
 
-.company::-webkit-scrollbar {
-  display: none;
-  /* opacity: 20%; */
-  /* height: 16px; */
-  /* opacity: 0; */
-}
-
 .company {
   gap: 0px 24px;
   margin: 0px -20px;
   padding: 0px 20px;
-  /* padding-bottom: 8px; */
 
-  /* position: relative; */
   overflow-x: auto;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: max-content;
-}
-
-.scrollbar {
-  pointer-events: none;
-  position: relative;
-  background-color: rgba(255, 255, 255, 0.3);
-  height: 2px;
-  display: flex;
-  align-items: center;
-}
-
-.scrollbar .thumb {
-  height: 100%;
-  width: 50%;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.4);
 }
 
 .team {
@@ -83,6 +58,7 @@ body {
 }
 
 .headshot {
+  position: relative;
   width: auto;
   height: 100%;
   min-height: 0;
@@ -90,7 +66,6 @@ body {
   display: inline-block;
   position: relative;
 
-  /* background-color: burlywood; */
   background-size: cover;
   background-position: center;
   background-position-y: -24px;
@@ -119,4 +94,24 @@ body {
   left: -1px;
   right: -1px;
   overflow: hidden;
+}
+
+.company::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar {
+  pointer-events: none;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.3);
+  height: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.scrollbar .thumb {
+  height: 100%;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.4);
 }
